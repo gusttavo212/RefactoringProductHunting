@@ -41,3 +41,5 @@ class MongoDB extends ICrud {
           return connection; //Manda para ICrud class gera o connection e o _connection recebe
     }
 };
+
+module.exports = MongoDB;
