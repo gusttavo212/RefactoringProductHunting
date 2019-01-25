@@ -39,6 +39,14 @@ class MongoDB extends ICrud {
           connection.once("open", () => console.log("Database MONGODB CONECTADO"));
 
           return connection; //Manda para ICrud class gera o connection e o _connection recebe
+    };
+
+    create(item) {
+        return this._schema.create(item);
+    }
+
+    read(query, skip=0, limit=10) {
+        return this._schema.find(query).skip(skip).limit(limit);
     }
 };
 
