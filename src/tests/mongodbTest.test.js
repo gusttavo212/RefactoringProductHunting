@@ -47,6 +47,14 @@ describe('MongoDB Suite de Testes', function () {
         } 
 
         assert.deepEqual(result, MOCK_PRODUCT_DEFAULT)
+    });
+
+    it('Atualizar', async () => {
+        const result = await context.update(MOCK_PRODUCT_ID, {
+            title: 'Produto ATUALIZADO'
+        });
+
+        assert.deepEqual(result.nModified, 1);
     })
 
 });

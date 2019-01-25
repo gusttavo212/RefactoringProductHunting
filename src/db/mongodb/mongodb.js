@@ -43,11 +43,15 @@ class MongoDB extends ICrud {
 
     create(item) {
         return this._schema.create(item);
-    }
+    };
 
     read(query, skip=0, limit=10) {
         return this._schema.find(query).skip(skip).limit(limit);
-    }
+    };
+
+    update(id, item) {
+        return this._schema.updateOne({_id: id}, {$set: item})
+    };
 };
 
 module.exports = MongoDB;
