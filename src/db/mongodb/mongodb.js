@@ -27,7 +27,7 @@ class MongoDB extends ICrud {
 
     static connect() {
         mongoose.connect(
-            "mongodb://gadsden:250433@localhost/herois?authSource=admin&w=1",
+            "mongodb://gadsden:250433@localhost/productRefat?authSource=admin&w=1",
             { useNewUrlParser: true },
             function(error) {
               if (!error) return;

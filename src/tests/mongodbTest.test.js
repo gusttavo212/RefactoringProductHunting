@@ -10,9 +10,9 @@ describe('MongoDB Suite de Testes', function () {
     });
 
     it('Teste de conexão', async () => {
-        const result = await context.isConnected();
-        console.log('Resultado', result);
-        const expected = 'Conectado';
+        const result = await context.isConnected();//Resultado da conexão
+        
+        const expected = 'Conectado';//Resultado esperado
 
         assert.deepEqual(result, expected);
     });
