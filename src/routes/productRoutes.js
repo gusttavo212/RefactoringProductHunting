@@ -92,6 +92,36 @@ class ProductRoute extends BaseRoute {
         
     };
 
+    update() {
+        return{
+            path: '/product/{id}',
+            method: 'PATCH',
+            config: {
+                validate: {
+                    failAction,
+                    payload: {
+                        title: joi.string().min(3).max(50),//Lembrar de tirar o required
+                        description: joi.string().min(5).max(200),
+                        url: joi.string().min(5).max(100)
+                    },
+                    params: {
+                        id: joi.string().required()
+                    }
+                }
+            },
+            handler: async (request) => {
+                try {
+                    const payload = request.payload;
+                    const id = request.params.id;
+                    return this.db.update(id, payload)
+                } catch (error) {
+                    console.log('Error interno', error);
+                    return boom.internal();
+                }
+            }
+        }
+    }
+
 
     
 };
