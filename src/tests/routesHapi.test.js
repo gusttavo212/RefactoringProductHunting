@@ -53,7 +53,7 @@ describe.only('Suite de testes da API PRODUCTHUNT', function () {
         assert.notStrictEqual(_id, undefined)//ID não pode ser indefinido
     });
 
-    it('Atualizar PATCH /herois/id', async () => {
+    it('Atualizar PATCH /product/id', async () => {
         const _id = MOCK_ID;
         const expected = {
             title: 'Product ATUALIZADO TEST'            
@@ -67,5 +67,16 @@ describe.only('Suite de testes da API PRODUCTHUNT', function () {
 
         assert.deepEqual(result.statusCode, 200) 
         assert.deepEqual(JSON.parse(result.payload).nModified, 1)
-    })
-}) ;
+    });
+
+    it('Deletar DELETE /product/id:', async () => {
+        const _id = MOCK_ID;
+        const result = await app.inject({
+            method: 'DELETE',
+            url: `/product/${_id}`
+        });
+
+        assert.ok(result.statusCode === 200);    
+        assert.deepEqual(JSON.parse(result.payload).n, 1);
+    });
+});

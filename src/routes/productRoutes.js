@@ -120,6 +120,31 @@ class ProductRoute extends BaseRoute {
                 }
             }
         }
+    };
+
+    delete() {
+        return {
+            path: '/product/{id}',
+            method: 'DELETE',
+            config: {
+                validate: {
+                    failAction,
+                    params: {
+                        id: joi.string().required()
+                    }
+                }
+            },
+            handler: async (request) => {
+                try {
+                    const id = request.params.id;
+                    const result = await this.db.delete(id);
+                    return result                    
+                } catch (error) {
+                    console.log('Erro interno', error);
+                    return boom.internal();
+                }
+            }
+        }
     }
 
 
