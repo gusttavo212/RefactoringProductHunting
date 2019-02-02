@@ -17,6 +17,9 @@ class ProductRoute extends BaseRoute {
             path: '/product',
             method: 'GET',
             config: {
+                tags: ['api'],
+                description: 'Deve listar os produtos',
+                notes: 'Pode paginar resultados e filtrar por nome',
                 validate: {
                     failAction,
                     query: {
@@ -59,6 +62,9 @@ class ProductRoute extends BaseRoute {
             path: '/product',
             method: 'POST',
             config: {
+                tags: ['api'],
+                description: 'Deve cadastrar um produto',
+                notes: 'Deve cadastrar produto por title, description e url',
                 validate: {
                     failAction,
                     payload: {
@@ -97,6 +103,9 @@ class ProductRoute extends BaseRoute {
             path: '/product/{id}',
             method: 'PATCH',
             config: {
+                tags: ['api'],  
+                description: 'Deve atualizar produto por id',
+                notes: 'Pode ser atualizado o title, description ou url',     
                 validate: {
                     failAction,
                     payload: {
@@ -127,6 +136,9 @@ class ProductRoute extends BaseRoute {
             path: '/product/{id}',
             method: 'DELETE',
             config: {
+                tags:['api'],
+               description: 'Deve deletar produto por id',
+               notes: 'não deve deletar com id invalido',
                 validate: {
                     failAction,
                     params: {
