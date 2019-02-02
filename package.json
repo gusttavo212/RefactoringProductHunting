@@ -19,10 +19,13 @@
     "cors": "^2.8.5",
     "express": "^4.16.4",
     "hapi": "^18.0.0",
+    "hapi-swagger": "^9.3.0",
+    "inert": "^5.1.2",
     "joi": "^14.3.1",
     "mocha": "^5.2.0",
     "mongoose": "^5.4.0",
     "mongoose-paginate": "^5.0.3",
-    "require-dir": "^1.2.0"
+    "require-dir": "^1.2.0",
+    "vision": "^5.4.4"
   }
 }
